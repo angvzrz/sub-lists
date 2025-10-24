@@ -1,3 +1,6 @@
+import { Params } from 'next/dist/server/request/params';
+import { ReadonlyURLSearchParams } from 'next/navigation';
+
 export type Playlist = {
   id: string;
   title: string;
@@ -15,4 +18,9 @@ export type PlaylistVideo = {
   channel: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type PageProps = {
+  params: Promise<Params>;
+  searchParams: Promise<ReadonlyURLSearchParams>;
 };
