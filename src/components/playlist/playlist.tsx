@@ -1,0 +1,35 @@
+import { PlaylistVideo } from './playlist-video';
+import type { Playlist } from '@/types';
+import { SubPlaylistItem } from './subPlaylist-item';
+
+type PlaylistProps = Readonly<{
+  playList: Playlist;
+}>;
+
+export function Playlist({ playList }: PlaylistProps) {
+  return (
+    <>
+      <ul className="grid grid-cols-1 gap-4 p-8 sm:grid-cols-2 lg:grid-cols-3">
+        {playList.subPlaylists?.map((subPlaylist) => (
+          <li
+            key={subPlaylist.id}
+            className="flex flex-col rounded-md border p-4"
+          >
+            <SubPlaylistItem playlist={subPlaylist} />
+          </li>
+        ))}
+      </ul>
+      <ul className="grid grid-cols-1 gap-4 p-8">
+        {!playList.videos || playList.videos.length === 0 ? (
+          <div className="p-4">
+            <p className="text-gray-500">No videos in this playlist yet</p>
+          </div>
+        ) : (
+          playList.videos.map((video) => (
+            <PlaylistVideo key={video.id} video={video} />
+          ))
+        )}
+      </ul>
+    </>
+  );
+}

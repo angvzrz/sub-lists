@@ -1,28 +1,6 @@
 import { Button } from '@/components/ui/button';
-
-const playlists = [
-  {
-    id: '1',
-    name: 'My Playlist 1',
-    createdAt: '2023-10-01',
-    updatedAt: '2023-10-05',
-    category: 'Music',
-  },
-  {
-    id: '2',
-    name: 'My Playlist 2',
-    createdAt: '2023-10-02',
-    updatedAt: '2023-10-06',
-    category: 'Podcasts',
-  },
-  {
-    id: '3',
-    name: 'My Playlist 3',
-    createdAt: '2023-10-03',
-    updatedAt: '2023-10-07',
-    category: 'Audiobooks',
-  },
-];
+import { PLAYLISTS_MOCK } from '@/constants';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -35,21 +13,23 @@ export default function Home() {
 
         <section>
           <ul className="grid grid-cols-1 gap-4">
-            {playlists.map((playlist) => (
+            {PLAYLISTS_MOCK.map((playlist) => (
               <li
                 key={playlist.id}
                 className="flex flex-col rounded-md border p-4"
               >
-                <h2 className="text-lg font-semibold">{playlist.name}</h2>
-                <p className="text-sm text-gray-500">
-                  Category: {playlist.category}
-                </p>
-                <p className="text-sm text-gray-500">
-                  Created At: {playlist.createdAt}
-                </p>
-                <p className="text-sm text-gray-500">
-                  Updated At: {playlist.updatedAt}
-                </p>
+                <Link href={`/playlist/${playlist.id}`}>
+                  <h2 className="text-lg font-semibold">{playlist.title}</h2>
+                  <p className="text-sm text-gray-500">
+                    Category: {playlist.category}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Created At: {playlist.createdAt}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Updated At: {playlist.updatedAt}
+                  </p>
+                </Link>
               </li>
             ))}
           </ul>
