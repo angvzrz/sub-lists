@@ -25,7 +25,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
     ],
     videos: [
       {
-        id: 'v1',
+        id: 'v1-1',
         title: 'Video 1',
         playlistId: '',
         channel: 'Channel A',
@@ -50,7 +50,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
     category: 'Podcasts',
     videos: [
       {
-        id: 'v1',
+        id: 'v1-2',
         title: 'Video 1',
         playlistId: '',
         channel: 'Channel C',
@@ -75,7 +75,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
     category: 'Audiobooks',
     videos: [
       {
-        id: 'v1',
+        id: 'v1-3',
         title: 'Video 1',
         playlistId: '',
         channel: 'Channel E',
