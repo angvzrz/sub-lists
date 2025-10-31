@@ -27,7 +27,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v1-1',
         title: 'Video 1',
-        playlistId: '',
+        playlistId: '1',
         channel: 'Channel A',
         createdAt: '2023-10-01',
         updatedAt: '2023-10-02',
@@ -35,7 +35,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v2',
         title: 'Video 2',
-        playlistId: '',
+        playlistId: '1',
         channel: 'Channel B',
         createdAt: '2023-10-03',
         updatedAt: '2023-10-04',
@@ -52,7 +52,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v1-2',
         title: 'Video 1',
-        playlistId: '',
+        playlistId: '2',
         channel: 'Channel C',
         createdAt: '2023-10-01',
         updatedAt: '2023-10-02',
@@ -60,7 +60,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v2',
         title: 'Video 2',
-        playlistId: '',
+        playlistId: '2',
         channel: 'Channel D',
         createdAt: '2023-10-03',
         updatedAt: '2023-10-04',
@@ -77,7 +77,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v1-3',
         title: 'Video 1',
-        playlistId: '',
+        playlistId: '3',
         channel: 'Channel E',
         createdAt: '2023-10-01',
         updatedAt: '2023-10-02',
@@ -85,7 +85,7 @@ export const PLAYLISTS_MOCK: Playlist[] = [
       {
         id: 'v2',
         title: 'Video 2',
-        playlistId: '',
+        playlistId: '3',
         channel: 'Channel F',
         createdAt: '2023-10-03',
         updatedAt: '2023-10-04',
