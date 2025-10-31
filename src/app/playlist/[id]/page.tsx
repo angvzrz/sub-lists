@@ -1,5 +1,5 @@
 import { PLAYLISTS_MOCK } from '@/constants';
-import { Playlist } from '../../../components/playlist/playlist';
+import { PlaylistView } from '../../../components/playlist/playlist-view';
 import { BackButton } from '@/components/playlist/back-button';
 
 export default async function ListPage({
@@ -15,7 +15,7 @@ export default async function ListPage({
     <main className="container mx-auto p-4">
       <BackButton />
       <h1 className="text-3xl">{playlist.title}</h1>
-      <Playlist playList={playlist} />
+      <PlaylistView playList={playlist} />
     </main>
   );
 }
