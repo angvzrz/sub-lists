@@ -4,7 +4,7 @@ type PlaylistVideoProps = Readonly<{
   video: PlaylistVideo;
 }>;
 
-export function PlaylistVideo({
+export function PlaylistVideoItem({
   video: { id, title, playlistId: playlist, channel },
 }: PlaylistVideoProps) {
   return (

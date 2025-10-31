@@ -1,4 +1,4 @@
-import { PlaylistVideo } from './playlist-video';
+import { PlaylistVideoItem } from './playlist-video-item';
 import type { Playlist } from '@/types';
 import { SubPlaylistItem } from './subPlaylist-item';
 
@@ -26,7 +26,7 @@ export function Playlist({ playList }: PlaylistProps) {
           </div>
         ) : (
           playList.videos.map((video) => (
-            <PlaylistVideo key={video.id} video={video} />
+            <PlaylistVideoItem key={video.id} video={video} />
           ))
         )}
       </ul>
