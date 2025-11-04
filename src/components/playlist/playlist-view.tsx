@@ -13,12 +13,7 @@ export function PlaylistView({ playList }: PlaylistProps) {
         <h2 className="px-8 pt-8 text-xl font-bold">Sub-Playlists</h2>
         <ul className="grid grid-cols-1 gap-4 p-8 sm:grid-cols-2 lg:grid-cols-3">
           {playList.subPlaylists?.map((subPlaylist) => (
-            <li
-              key={subPlaylist.id}
-              className="flex flex-col rounded-md border p-4"
-            >
-              <SubPlaylistItem playlist={subPlaylist} />
-            </li>
+            <SubPlaylistItem key={subPlaylist.id} playlist={subPlaylist} />
           ))}
         </ul>
       </section>
