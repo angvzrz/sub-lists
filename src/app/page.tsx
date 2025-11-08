@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { NewPlaylistDialog } from '@/components/playlist/new-playlist-dialog';
 import { PLAYLISTS_MOCK } from '@/constants';
 import Link from 'next/link';
 
@@ -36,9 +36,7 @@ export default function Home() {
         </section>
 
         <div className="fixed bottom-0 left-0 flex w-full items-center justify-center bg-slate-900">
-          <Button className="bg-transparent hover:cursor-pointer">
-            Create new playlist
-          </Button>
+          <NewPlaylistDialog />
         </div>
       </main>
     </div>
