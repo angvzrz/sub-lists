@@ -18,11 +18,8 @@ import { MUTATIONS } from '@/db/queries';
 
 const handleCreatePlaylist = (title: string) => {
   MUTATIONS.createPlaylist({
-    id: crypto.randomUUID(),
     title,
     category: 'Uncategorized',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
   });
 };
 
