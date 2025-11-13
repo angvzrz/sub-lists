@@ -11,9 +11,16 @@ type PlaylistProps = Readonly<{
 
 export function PlaylistView({ playlistId }: PlaylistProps) {
   const playlists = useLiveQuery(() => db.playlists.toArray());
-  const playlist = playlists?.find((pl) => pl.id === playlistId);
+  if (!playlists) return <div>No content found.</div>;
 
-  if (!playlist) return <div>No content found.</div>;
+  const playlist = playlists?.find((pl) => pl.id === playlistId);
+  if (!playlist) return <div>Playlist not found.</div>;
+
+  const subPlaylists = playlist.subPlaylists
+    ? playlist.subPlaylists.flatMap((subPlaylistId) =>
+        playlists.filter((pl) => pl.id === subPlaylistId),
+      )
+    : [];
 
   return (
     <>
@@ -22,12 +29,12 @@ export function PlaylistView({ playlistId }: PlaylistProps) {
         <h2 className="px-8 pt-8 text-xl font-bold">Sub-Playlists</h2>
 
         <ul className="grid grid-cols-1 gap-4 p-8 sm:grid-cols-2 lg:grid-cols-3">
-          {!playlist.subPlaylists || playlist.subPlaylists.length === 0 ? (
+          {subPlaylists.length === 0 ? (
             <div className="p-4">
               <p className="text-gray-500">No sub-playlists yet</p>
             </div>
           ) : (
-            playlist.subPlaylists?.map((subPlaylist) => (
+            subPlaylists.map((subPlaylist) => (
               <SubPlaylistItem key={subPlaylist.id} playlist={subPlaylist} />
             ))
           )}
