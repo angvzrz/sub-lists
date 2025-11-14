@@ -17,7 +17,27 @@ export const MUTATIONS = {
       updatedAt: now,
     });
   },
-  createPlaylistVideo: function (video: PlaylistVideo) {
-    return db.videos.add(video);
+  createPlaylistVideo: async function (
+    playlistId: string,
+    video: Omit<PlaylistVideo, 'id' | 'createdAt' | 'updatedAt'>,
+  ) {
+    const playlist = await db.playlists.get(playlistId);
+    if (!playlist) throw new Error('Playlist not found');
+
+    const now = new Date().toISOString();
+    const videoId = await db.videos.add({
+      ...video,
+      createdAt: now,
+      updatedAt: now,
+    });
+
+    const updatedVideos = playlist.videos
+      ? [...playlist.videos, videoId]
+      : [videoId];
+
+    return db.playlists.update(playlistId, {
+      videos: updatedVideos,
+      updatedAt: now,
+    });
   },
 };
