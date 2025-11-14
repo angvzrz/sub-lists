@@ -7,8 +7,8 @@ export type Playlist = {
   createdAt: string;
   updatedAt: string;
   category: string;
-  subPlaylists?: Playlist[];
-  videos?: PlaylistVideo[];
+  subPlaylists?: string[];
+  videos?: string[];
 };
 
 export type PlaylistVideo = {
