@@ -13,8 +13,9 @@ export type Playlist = {
 
 export type PlaylistVideo = {
   id: string;
-  title: string;
   playlistId: string;
+  url: string;
+  title: string;
   channel: string;
   createdAt: string;
   updatedAt: string;
