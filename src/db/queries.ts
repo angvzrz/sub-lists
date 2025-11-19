@@ -18,9 +18,9 @@ export const MUTATIONS = {
     });
   },
   createPlaylistVideo: async function (
-    playlistId: string,
     video: Omit<PlaylistVideo, 'id' | 'createdAt' | 'updatedAt'>,
   ) {
+    const playlistId = video.playlistId;
     const playlist = await db.playlists.get(playlistId);
     if (!playlist) throw new Error('Playlist not found');
 
