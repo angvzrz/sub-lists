@@ -13,7 +13,8 @@ import {
 import { Input } from '../ui/input';
 
 type DialogWrapperProps = {
-  inputRef: React.RefObject<HTMLInputElement | null>;
+  titleInputRef: React.RefObject<HTMLInputElement | null>;
+  urlInputRef?: React.RefObject<HTMLInputElement | null>;
   dialogTitle: string;
   dialogDescription: string;
   dialogAction: () => void;
@@ -21,7 +22,8 @@ type DialogWrapperProps = {
 
 export function DialogWrapper({
   children,
-  inputRef,
+  titleInputRef,
+  urlInputRef,
   dialogTitle,
   dialogDescription,
   dialogAction,
@@ -35,8 +37,13 @@ export function DialogWrapper({
           <AlertDialogDescription className="flex flex-col gap-6">
             {dialogDescription}
             <div className="flex flex-col gap-2">
-              <Input ref={inputRef} placeholder="Choose a title" />
+              <Input ref={titleInputRef} placeholder="Choose a title" />
             </div>
+            {urlInputRef && (
+              <div className="flex flex-col gap-2">
+                <Input ref={urlInputRef} placeholder="Add url" />
+              </div>
+            )}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="flex w-full flex-1">
